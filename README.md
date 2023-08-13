@@ -11,7 +11,7 @@ A Python class for scraping reviews from Trustpilot and transforming them into a
   - [Usage](#usage)
 - [Class Overview](#class-overview)
 - [Use Cases](#use-cases)
-- [Use Cases](#usage-guidelines)
+- [Usage Guidelines](#usage-guidelines)
 
 
 

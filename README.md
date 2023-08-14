@@ -1,4 +1,4 @@
-![Example DataFrame](assets/tp_logo.svg)
+![Example DataFrame](assets/tp_logo_new.png)
 
 # TrustPilot Review Scraper
 

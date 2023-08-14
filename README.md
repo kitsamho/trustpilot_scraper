@@ -1,3 +1,5 @@
+![Example DataFrame](assets/tp_logo.svg)
+
 # TrustPilot Review Scraper
 
 A Python class for scraping reviews from Trustpilot and transforming them into a Pandas DataFrame.

@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from trust_pilot_scraper import TrustPilotScraper  # Replace with your actual custom scraper class
+from trust_pilot_scraper import TrustPilotScraper
 
 # Streamlit app
 

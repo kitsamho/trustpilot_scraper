@@ -31,7 +31,6 @@ This repository provides a Python class, `TrustPilotScraper`, designed to scrape
 ## Getting Started
 
 ### Installation
-
 1. Clone this repository:
 
    ```

@@ -2,7 +2,7 @@
 
 # TrustPilot Review Scraper
 
-A Python class for scraping reviews from Trustpilot and transforming them into a Pandas DataFrame.
+A Python class for scraping reviews from Trustpilot.
 
 ## Table of Contents
 

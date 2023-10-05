@@ -28,19 +28,7 @@ if st.button("Scrape Reviews"):
             # Display scraped reviews
             st.write("Scraped Reviews:")
             st.dataframe(scraped_reviews)
+            st.download_button("Download CSV", data=scraped_reviews.to_csv(), file_name="scraped_reviews.csv")
 
-            # Download options
-            st.write("Download Scraped Reviews:")
-            download_format = st.radio("Select download format:", ["CSV", "Excel"])
-
-            if download_format == "CSV":
-                st.write("Downloading CSV...")
-                st.download_button("Download CSV", data=scraped_reviews.to_csv(), file_name="scraped_reviews.csv",
-                                   mime="text/csv")
-            elif download_format == "Excel":
-                st.write("Downloading Excel...")
-                excel_data = scraped_reviews.to_excel(index=False)
-                st.download_button("Download Excel", data=excel_data, file_name="scraped_reviews.xlsx",
-                                   mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
         else:
             st.write("No reviews scraped.")

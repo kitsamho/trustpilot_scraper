@@ -1,3 +1,5 @@
+import re
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -19,8 +21,16 @@ class TrustPilotScraper:
             num_pages (int): The number of pages to scrape.
         """
         self.url = url
-        self.url_company = url.split("/")[-1]
         self.num_pages = num_pages
+
+    def __extract_url(self, url):
+        domain_pattern = r'www\.\S+'
+        domain = re.search(domain_pattern, url)
+        if domain:
+            extracted_domain = domain.group()
+            return extracted_domain
+        else:
+            return url
 
     def scrape_reviews(self):
         """
@@ -127,10 +137,9 @@ class TrustPilotScraper:
                            'headline': headlines,
                            'ratings': ratings,
                            'date': dates})
-        df['company'] = self.url_company
+        df['company'] = self.__extract_url(self.url)
         df_author = self.transform_nested_dataframe_column(df, 'author', ['name', 'url'])
         df_rating = self.transform_nested_dataframe_column(df, 'ratings', ['ratingValue'])
-        df['company'] = self.url_company
         return pd.concat([df[['company', 'date', 'headline', 'review']], df_author, df_rating], axis=1)
 
 

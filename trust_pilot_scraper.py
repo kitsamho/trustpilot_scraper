@@ -12,7 +12,7 @@ class TrustPilotScraper:
 
     def __init__(self, url, num_pages):
         """
-        Initialize the TrustPilotScraper object with the Trustpilot URL and number of pages to scrape.
+        Initialise the TrustPilotScraper object with the Trustpilot URL and number of pages to scrape.
 
         Args:
             url (str): The URL of the Trustpilot page to scrape.
@@ -126,12 +126,12 @@ class TrustPilotScraper:
                            'author': authors,
                            'headline': headlines,
                            'ratings': ratings,
-                           'date':dates})
+                           'date': dates})
         df['company'] = self.url_company
         df_author = self.transform_nested_dataframe_column(df, 'author', ['name', 'url'])
         df_rating = self.transform_nested_dataframe_column(df, 'ratings', ['ratingValue'])
         df['company'] = self.url_company
-        return pd.concat([df[['company','date','headline', 'review']], df_author, df_rating], axis=1)
+        return pd.concat([df[['company', 'date', 'headline', 'review']], df_author, df_rating], axis=1)
 
 
     @staticmethod
@@ -150,7 +150,6 @@ class TrustPilotScraper:
         df_flat = df[nested_col].apply(pd.Series)[new_cols]
         return df_flat
 
-
     def run(self):
         """
         Run the TrustPilotScraper to scrape reviews and generate the dataframe.
@@ -159,5 +158,5 @@ class TrustPilotScraper:
             pandas.DataFrame: The dataframe containing the scraped review data.
         """
         reviews, headlines, ratings, authors, dates = self.scrape_reviews()
-        df = self.get_dataframe_results(reviews, headlines, ratings, authors,dates)
+        df = self.get_dataframe_results(reviews, headlines, ratings, authors, dates)
         return df

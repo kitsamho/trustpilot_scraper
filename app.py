@@ -14,7 +14,10 @@ url = st.text_input("Enter the full TrustPilot URL to scrape reviews from:",
 
 # Input number of pages
 num_pages = st.number_input("Enter the number of pages to scrape:", value=1, min_value=1, step=1,
-                            help="Enter the number of review pages to scrape")
+                            help="Note - this is limited to a maximum of twenty five pages to prevent misuse")
+
+if num_pages > 25:
+    num_pages = 25
 
 if st.button("Scrape Reviews"):
     if url:
